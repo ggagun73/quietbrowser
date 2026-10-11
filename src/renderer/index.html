@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiet Browse</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand"><span>◌</span><strong>Quiet Browse</strong></div>
+      <div class="navigation">
+        <button id="back" title="뒤로">‹</button><button id="forward" title="앞으로">›</button><button id="reload" title="새로고침">↻</button>
+        <form id="address-form"><input id="address" autocomplete="off" placeholder="주소 또는 도메인을 입력하세요" /><button>이동</button></form>
+      </div>
+      <label class="focus"><input id="focus-toggle" type="checkbox" /><span>집중 모드</span></label>
+      <button id="panel-toggle" class="panel-toggle" aria-expanded="false">관리 <span>⌄</span></button>
+    </header>
+    <nav class="tabbar" aria-label="브라우저 탭"><div id="tabs" class="tabs"></div><button id="new-tab" class="new-tab" title="새 탭">+</button></nav>
+    <section id="settings-panel" class="settings" aria-label="사이트 관리 및 이용 통계">
+      <div class="setting"><label for="block-input">차단</label><form id="block-form"><input id="block-input" placeholder="예: youtube.com" /><button>추가</button></form><div id="blocked-list" class="chips"></div></div>
+      <div class="setting"><label for="limit-input">시간 제한</label><form id="limit-form"><input id="limit-input" placeholder="도메인" /><input id="minutes-input" type="number" min="1" placeholder="분/일" /><button>추가</button></form><div id="limits-list" class="chips"></div></div>
+      <div class="setting"><label for="allow-input">집중 모드 허용</label><form id="allow-form"><input id="allow-input" placeholder="예: notion.so" /><button>추가</button></form><div id="allowed-list" class="chips"></div></div>
+      <div class="stats">
+        <label>오늘 통계</label>
+        <div class="stats-overview">
+          <div id="pie-chart" class="pie-chart"><span id="pie-center">0분</span></div>
+          <div class="stats-summary"><strong id="stats-total">총 0분</strong><span id="stats-sites">이용 사이트 0개</span><span id="stats-top">가장 오래 이용한 사이트: -</span></div>
+        </div>
+        <div id="stats-list" class="stats-list"></div>
+      </div>
+    </section>
+    <script src="renderer.js"></script>
+  </body>
+</html>
